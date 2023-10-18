@@ -7,7 +7,7 @@ Window {
     height: 768
 
     visible: true
-
+    color: "#984063"
     title: qsTr("MediaPlayerSSV")
 
     MenuBarPlayer{
@@ -21,6 +21,8 @@ Window {
         }
 
     }
+
+
 
     VideoPlayer{
         id: videozone
@@ -39,6 +41,7 @@ Window {
         id: footer
 
         height: 150
+        color: "#41436A"
 
         anchors{
             left: parent.left
@@ -46,7 +49,7 @@ Window {
             bottom: parent.bottom
         }
 
-        Rectangle{
+        TimeSlider{
             id: timeslider
             height: 50
 

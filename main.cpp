@@ -1,8 +1,8 @@
 #include <QGuiApplication>
-#include <QMediaPlayer>
-#include <QAudioOutput>
 #include <QQmlApplicationEngine>
+
 #include <QQmlContext>
+#include <QQuickItem>
 #include <QIcon>
 
 //Controllers of Program
@@ -24,16 +24,18 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    engine.rootContext()->setContextProperty("mediaplayer",
-        uicontroller->Getplayercontroller()->GetPlayerPoiter()->source());
-
     const QUrl url(u"qrc:/MediaPlayer/main.qml"_qs);
+
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
         &app, [url](QObject *obj, const QUrl &objUrl) {
             if (!obj && url == objUrl)
                 QCoreApplication::exit(-1);
         }, Qt::QueuedConnection);
     engine.load(url);
+
+    QObject *Object = engine.rootObjects().constFirst();
+    QQuickItem *videoOutputItem = Object->findChild<QQuickItem*>("VideoOutput");
+    uicontroller->GetPointertoMediaPlayer()->setVideoOutput(videoOutputItem);
 
     return app.exec();
 }

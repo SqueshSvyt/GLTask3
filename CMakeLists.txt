@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 6.2 COMPONENTS
     Quick
     Multimedia
-    Widgets
+    QuickControls2
     REQUIRED)
 
 qt_add_executable(appMediaPlayer
@@ -24,18 +24,19 @@ qt_add_qml_module(appMediaPlayer
     Imagebutton.qml
     Controlpanel.qml
     VideoPlayer.qml
+    TimeSlider.qml
+
 
     RESOURCES
     resources/images/play.png
     resources/images/pause.png
+    resources/images/sound.png
+    resources/images/mute.png
 
     SOURCES
     uicontroller.h
     uicontroller.cpp
-    mediaplayercontroller.h
-    mediaplayercontroller.cpp
-    filefinder.h
-    filefinder.cpp
+
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -53,7 +54,7 @@ target_link_libraries(appMediaPlayer
     PRIVATE
     Qt6::Quick
     Qt6::Multimedia
-    Qt6::Widgets
+    Qt6::QuickControls2
     )
 
 include(GNUInstallDirs)

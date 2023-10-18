@@ -1,27 +1,28 @@
 import QtQuick
+import QtQuick.Controls
 import QtMultimedia
-
 
 Item {
     id:root
 
     visible: true
 
-    Video{
+
+    VideoOutput{
         id: videooutput
+
+        objectName: "VideoOutput"
 
         anchors.fill: parent
 
         width: parent.width
         height: parent.height
 
-        source: "C:/Users/olegs/Music/cyberpank.mp4"
 
-        loops: MediaPlayer.Infinite
     }
 
-    onVisibleChanged: {
-        if (visible)
-          videooutput.play()
+    MouseArea {
+        anchors.fill: parent
+        onClicked: mediaplayer.play();
     }
 }
