@@ -32,7 +32,7 @@ qt_add_qml_module(appMediaPlayer
     resources/images/pause.png
     resources/images/sound.png
     resources/images/mute.png
-    resources/images/icon.png
+    resources/images/icon.ico
 
     SOURCES
     mediaplayer.h

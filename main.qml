@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtLocation
 
 Window  {
     id: rootwindow
