@@ -1,13 +1,14 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
-import com.company.UIController
+import Logic.Mediaplayer
+import Logic.Audio
 
 Rectangle {
     id: root
 
     color: "#313866"
-    height: 100
+    height: parent.height
 
     Imagebutton{
         id: sound
@@ -19,8 +20,12 @@ Rectangle {
             right: audioSlider.left
             rightMargin: 10
         }
-        source: "resources/images/sound.png"
+
+        source: Audio.isMute ? "resources/images/mute.png" : "resources/images/sound.png"
+
         anchors.verticalCenterOffset: 0
+
+        onClicked: Audio.mute_audio()
     }
 
 
@@ -38,8 +43,7 @@ Rectangle {
         }
 
         value: 0.5
-        onValueChanged: UIController.setVolume(value) // Update the audio volume in C++
-
+        onValueChanged: Audio.setVol(value)
     }
 
 
@@ -57,11 +61,10 @@ Rectangle {
             width: 64
             height: 64
 
-            source: UIController.isPlaying ? "resources/images/pause.png" : "resources/images/play.png"
+            source: Player.isPlaying ? "resources/images/pause.png" : "resources/images/play.png"
 
-            onClicked: UIController.playPause();
+            onClicked: Player.playPause();
         }
 
     }
-
 }

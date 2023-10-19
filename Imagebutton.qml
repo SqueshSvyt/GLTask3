@@ -9,7 +9,6 @@ Image {
 
     mipmap: true
 
-
     MouseArea{
         id: buttonmousearea
 

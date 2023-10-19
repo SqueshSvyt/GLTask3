@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Window
 import QtMultimedia
 
 Item {
@@ -18,11 +19,16 @@ Item {
         width: parent.width
         height: parent.height
 
+        fillMode: VideoOutput.PreserveAspectFit
 
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: mediaplayer.play();
+        TapHandler {
+            onDoubleTapped: {
+                parent.fullScreen ?  showNormal() : showFullScreen()
+                parent.fullScreen = !parent.fullScreen
+            }
+            onTapped: {
+                //Fot_Meta_data
+            }
+        }
     }
 }

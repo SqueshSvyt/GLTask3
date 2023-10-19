@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
-import com.company.UIController
+import Logic.Mediaplayer
 
 Item {
     Timer {
@@ -10,7 +10,7 @@ Item {
         running: true
         repeat: true
         onTriggered: {
-            timeslider.value = UIController.mediatime / UIController.getMaxTime();
+            timeslider.value = Player.mediatime / Player.mediaTime();
         }
     }
 
@@ -27,7 +27,7 @@ Item {
 
         anchors.centerIn: parent;
 
-        onMoved: UIController.setMediatime(value * UIController.getMaxTime())
+        onMoved: Player.setMediatime(value * Player.mediaTime())
 
     }
 }

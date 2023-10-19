@@ -1,6 +1,9 @@
 import QtQuick
+import QtQuick.Controls
 
-Window {
+Window  {
+    id: rootwindow
+
     minimumWidth: 640
     minimumHeight: 480
     width: 1024
@@ -8,6 +11,7 @@ Window {
 
     visible: true
     color: "#984063"
+    modality: Qt.WindowModal
     title: qsTr("MediaPlayerSSV")
 
     MenuBarPlayer{
@@ -40,7 +44,7 @@ Window {
     Rectangle{
         id: footer
 
-        height: 150
+        height: 130
         color: "#41436A"
 
         anchors{
@@ -62,6 +66,8 @@ Window {
 
         Controlpanel{
             id: controlpanel
+
+            height: 80
 
             anchors{
                 left: footer.left

@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Dialogs
 import QtQuick.Layouts
-import com.company.UIController
+import Logic.FileDriver
 
 Item {
     id: root
@@ -15,6 +15,12 @@ Item {
         color: "#5D635C"
     }
 
+    FileDialog {
+        id: fileDialog
+        title: "Please choose a file"
+        nameFilters: ["Media Files (*.mp4 *.mp3)", "MP4 Files (*.mp4)", "MP3 Files (*.mp3)", "All Files (*)"]
+        onAccepted: File.openFile(selectedFile)
+    }
 
     Popup {
         id: urlPopup
@@ -31,21 +37,17 @@ Item {
                 focus: true
                 Layout.minimumWidth: 400
                 wrapMode: TextInput.WrapAnywhere
-                Keys.onReturnPressed: {  }
             }
 
             Button {
                 text: "Load"
-                onClicked: {  }
+                onClicked: {
+                    File.openFile(urlText.text)
+                    console.log(urlText.text)
+                }
             }
         }
-    }
-
-    FileDialog {
-        id: fileDialog
-        title: "Please choose a file"
-        nameFilters: ["Media Files (*.mp4 *.mp3)", "MP4 Files (*.mp4)", "MP3 Files (*.mp3)", "All Files (*)"]
-        onAccepted: UIController.openFile(selectedFile)
+        onOpened: { urlPopup.forceActiveFocus() }
     }
 
     MenuBar {
@@ -65,12 +67,16 @@ Item {
             }
             Action {
                 text: qsTr("&URL");
-
+                onTriggered: {
+                    urlPopup.open()
+                }
             }
 
             Action {
                 text: qsTr("&Exit");
-
+                onTriggered: {
+                    Qt.quit()
+                }
             }
         }
 
