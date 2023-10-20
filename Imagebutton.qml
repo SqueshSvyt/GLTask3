@@ -1,13 +1,24 @@
 import QtQuick
 
-Image {
-    id: root
 
-    signal clicked
+Item {
+
+    property alias source: image.source
+
+    id: root
 
     opacity: buttonmousearea.containsMouse ? 0.75 : 1
 
-    mipmap: true
+    signal clicked
+
+    Image {
+        id: image
+
+        height: parent.height
+        width: parent.width
+
+        mipmap: true
+    }
 
     MouseArea{
         id: buttonmousearea
@@ -21,3 +32,5 @@ Image {
         }
     }
 }
+
+

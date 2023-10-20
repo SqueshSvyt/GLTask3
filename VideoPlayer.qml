@@ -2,12 +2,12 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Window
 import QtMultimedia
+import Logic.Mediaplayer
 
 Item {
     id:root
 
     visible: true
-
 
     VideoOutput{
         id: videooutput
@@ -23,11 +23,7 @@ Item {
 
         TapHandler {
             onDoubleTapped: {
-                parent.fullScreen ?  showNormal() : showFullScreen()
-                parent.fullScreen = !parent.fullScreen
-            }
-            onTapped: {
-                //Fot_Meta_data
+                //MetaData
             }
         }
     }

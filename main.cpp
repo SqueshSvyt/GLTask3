@@ -13,8 +13,8 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
     app.setWindowIcon(QIcon(":/MediaPlayer/resources/images/icon.ico"));
+
     //Create Objects
     MediaPlayer* mediaplayer = new MediaPlayer(&app);
     FileDriver* filedriver = new FileDriver(&app);

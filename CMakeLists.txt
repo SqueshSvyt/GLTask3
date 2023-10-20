@@ -26,13 +26,14 @@ qt_add_qml_module(appMediaPlayer
     VideoPlayer.qml
     TimeSlider.qml
 
-
     RESOURCES
     resources/images/play.png
     resources/images/pause.png
     resources/images/sound.png
     resources/images/mute.png
     resources/images/icon.ico
+    resources/images/next.png
+    resources/images/library.png
 
     SOURCES
     mediaplayer.h

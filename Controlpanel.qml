@@ -7,14 +7,15 @@ import Logic.Audio
 Rectangle {
     id: root
 
-    color: "#313866"
+
+    color: "#D8D9DA"
     height: parent.height
 
     Imagebutton{
         id: sound
 
-        width: 40
-        height: 40
+        width: parent.height * 0.6
+        height: parent.height * 0.6
         anchors{
             verticalCenter: parent.verticalCenter
             right: audioSlider.left
@@ -32,7 +33,7 @@ Rectangle {
     Slider {
         id: audioSlider
 
-        width: parent.width * 0.2
+        width: parent.width * 0.15
 
         to: 1.0
 
@@ -48,23 +49,52 @@ Rectangle {
 
 
     Row{
-        spacing: 20
+        spacing: playpause.height * 0.2
 
         anchors.centerIn: parent
 
+        Imagebutton{
 
+            id: prev
+
+            anchors.verticalCenter:  parent.verticalCenter
+
+            width: root.height * 0.6
+            height: root.height * 0.6
+
+            source: "resources/images/next.png"
+
+            onClicked: Player.mediaSeek(-5000)
+        }
 
         Imagebutton{
 
             id: playpause
 
-            width: 64
-            height: 64
+            anchors.verticalCenter:  parent.verticalCenter
+
+            width: root.height * 0.8
+            height: root.height * 0.8
 
             source: Player.isPlaying ? "resources/images/pause.png" : "resources/images/play.png"
 
             onClicked: Player.playPause();
         }
 
+        Imagebutton{
+
+            id: next
+
+            anchors.verticalCenter:  parent.verticalCenter
+
+            rotation: 180
+
+            width: root.height * 0.6
+            height: root.height * 0.6
+
+            source: "resources/images/next.png"
+
+            onClicked: Player.mediaSeek(5000)
+        }
     }
 }

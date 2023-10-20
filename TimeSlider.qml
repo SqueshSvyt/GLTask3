@@ -4,9 +4,11 @@ import QtQuick.Controls.Material
 import Logic.Mediaplayer
 
 Item {
+    opacity: 0.5
+
     Timer {
         id: positionUpdateTimer
-        interval: 1000
+        interval: 250
         running: true
         repeat: true
         onTriggered: {
@@ -16,8 +18,9 @@ Item {
 
     Slider {
         id: timeslider
-
+        opacity: 1
         width: parent.width * 0.9
+        height: parent.height
 
         Material.accent: Material.Blue
         Material.theme: Material.Dark

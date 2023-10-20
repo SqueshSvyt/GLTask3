@@ -7,11 +7,11 @@ Window  {
 
     minimumWidth: 640
     minimumHeight: 480
-    width: 1024
-    height: 768
+    width: 856
+    height: 480
 
     visible: true
-    color: "#984063"
+    color: "#61677A"
     modality: Qt.WindowModal
     title: qsTr("MediaPlayerSSV")
 
@@ -27,8 +27,6 @@ Window  {
 
     }
 
-
-
     VideoPlayer{
         id: videozone
 
@@ -39,14 +37,14 @@ Window  {
             bottom: footer.top
         }
 
-        height: parent.height - (mainmenubar.height + footerbutton.height)
+        height: parent.height - (mainmenubar.height + footer.height)
     }
 
     Rectangle{
         id: footer
 
-        height: 130
-        color: "#41436A"
+        height: 0.15 * parent.height
+        color: "#FFF6E0"
 
         anchors{
             left: parent.left
@@ -54,21 +52,10 @@ Window  {
             bottom: parent.bottom
         }
 
-        TimeSlider{
-            id: timeslider
-            height: 50
-
-            anchors{
-                left: footer.left
-                right: footer.right
-                top: footer.top
-            }
-        }
-
         Controlpanel{
             id: controlpanel
 
-            height: 80
+            height: parent.height - timeslider.height
 
             anchors{
                 left: footer.left
@@ -77,6 +64,16 @@ Window  {
             }
 
         }
-    }
 
+        TimeSlider{
+            id: timeslider
+            height: 0.30 * parent.height
+
+            anchors{
+                left: footer.left
+                right: footer.right
+                top: footer.top
+            }
+        }
+    }
 }

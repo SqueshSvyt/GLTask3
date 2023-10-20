@@ -9,7 +9,6 @@ class FileDriver : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(bool OpenFile NOTIFY OpenFileChanged FINAL)
 public:
     explicit FileDriver(QObject *parent = nullptr);
 
@@ -18,9 +17,6 @@ public:
 public slots:
     void openFile(QUrl pathtofile);
 
-
-signals:
-    void OpenFileChanged();
 private:
     MediaPlayer* pr_mediaplayer;
 };
