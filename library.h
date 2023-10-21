@@ -2,9 +2,12 @@
 #define LIBRARY_H
 
 #include <QObject>
-#include <QUrl>
 #include <QMediaMetaData>
 #include <QMediaPlayer>
+#include <QQuickImageProvider>
+#include <QImage>
+#include <QUrl>
+
 #include <vector>
 
 class MediaLibrary : public QObject
@@ -14,9 +17,14 @@ class MediaLibrary : public QObject
 public:
     explicit MediaLibrary(QObject *parent = nullptr);
 
-    Q_INVOKABLE std::vector<QUrl> getMediaItems() const;
+    void SourceChange() const;
 
-    Q_INVOKABLE std::vector<QString> getMetaDatainfo(const QUrl &filePath) const;
+    Q_INVOKABLE std::vector<QUrl> getMediaItems() const;
+    Q_INVOKABLE QString getTitle(QUrl url) const;
+    Q_INVOKABLE QString getGenre(QUrl url) const;
+    Q_INVOKABLE QString getReleaseDate(QUrl url) const;
+
+    Q_INVOKABLE void addMedia(QUrl url);
 
 private:
     std::vector<QUrl> mediaItems;

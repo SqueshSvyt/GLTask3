@@ -14,6 +14,21 @@ Window  {
     color: "#61677A"
     title: qsTr("MediaPlayerSSV")
 
+    LibraryZone{
+        id: libzone
+
+        visible: controlpanel.library
+
+        anchors{
+            left: parent.left
+            right: parent.right
+            top: mainmenubar.bottom
+            bottom: footer.top
+        }
+
+        height: parent.height - (mainmenubar.height + footer.height)
+    }
+
     MenuBarPlayer{
         id: mainmenubar
 
@@ -80,18 +95,4 @@ Window  {
         height: parent.height - (mainmenubar.height + footer.height)
     }
 
-    LibraryZone{
-        id: libzone
-
-        visible: controlpanel.library
-
-        anchors{
-            left: parent.left
-            right: parent.right
-            top: mainmenubar.bottom
-            bottom: footer.top
-        }
-
-        height: parent.height - (mainmenubar.height + footer.height)
-    }
 }

@@ -9,6 +9,7 @@ find_package(Qt6 6.2 COMPONENTS
     Quick
     Multimedia
     QuickControls2
+    Gui
     REQUIRED)
 
 qt_add_executable(appMediaPlayer
@@ -37,6 +38,7 @@ qt_add_qml_module(appMediaPlayer
     resources/images/next.png
     resources/images/library.png
     resources/images/videochoose.png
+    resources/images/add.png
 
     SOURCES
     mediaplayer.h
@@ -65,6 +67,7 @@ target_link_libraries(appMediaPlayer
     Qt6::Quick
     Qt6::Multimedia
     Qt6::QuickControls2
+    Qt6::Gui
     )
 
 include(GNUInstallDirs)
