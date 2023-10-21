@@ -16,9 +16,8 @@ public:
 
     Q_INVOKABLE std::vector<QUrl> getMediaItems() const;
 
-    Q_INVOKABLE QString getTitle(const QString &filePath) const;
-    Q_INVOKABLE QString getArtist(const QUrl &filePath) const;
-    //Q_INVOKABLE QTime getDuration(const QUrl &filePath);
+    Q_INVOKABLE std::vector<QString> getMetaDatainfo(const QUrl &filePath) const;
+
 private:
     std::vector<QUrl> mediaItems;
     QMediaPlayer* mediaplayermeta = new QMediaPlayer();

@@ -1,8 +1,7 @@
 import QtQuick
 import QtQuick.Controls
-import MediaLibrary
 import QtMultimedia
-
+import MediaLibrary
 
 Item {
     id:root
@@ -15,6 +14,7 @@ Item {
     MediaLibrary{
         id: medialib
     }
+
 
 
     ListView {
@@ -36,9 +36,13 @@ Item {
         }
 
         Component.onCompleted: {
-            var mediaItems = medialib.getMediaItems();
+            var medurl = medialib.getMediaItems();
+            var mediaItems = medialib.getMetaDatainfo(medurl);
             for (var i = 0; i < mediaItems.length; i++) {
-                mediaModel.append({ url: mediaItems[i] });
+                mediaModel.append({ title: mediaItems[i][0],
+                                    url: mediaItems[i][17],
+                                    mediatype: mediaItems[i][18]
+                                  });
             }
         }
 
@@ -63,7 +67,7 @@ Item {
             }
 
             Text {
-                text: medialib.getTitle(model.url)
+                text: model.title
 
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
