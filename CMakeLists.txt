@@ -25,6 +25,8 @@ qt_add_qml_module(appMediaPlayer
     Controlpanel.qml
     VideoPlayer.qml
     TimeSlider.qml
+    LibraryZone.qml
+    BaseButton.qml
 
     RESOURCES
     resources/images/play.png

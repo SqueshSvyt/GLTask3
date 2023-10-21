@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import QtLocation
+import QtQuick.Controls.Windows
 
 Window  {
     id: rootwindow
@@ -12,7 +12,6 @@ Window  {
 
     visible: true
     color: "#61677A"
-    modality: Qt.WindowModal
     title: qsTr("MediaPlayerSSV")
 
     MenuBarPlayer{
@@ -29,6 +28,24 @@ Window  {
 
     VideoPlayer{
         id: videozone
+
+        visible: !controlpanel.library
+
+
+        anchors{
+            left: parent.left
+            right: parent.right
+            top: mainmenubar.bottom
+            bottom: footer.top
+        }
+
+        height: parent.height - (mainmenubar.height + footer.height)
+    }
+
+    LibraryZone{
+        id: libzone
+
+        visible: controlpanel.library
 
         anchors{
             left: parent.left
@@ -62,7 +79,6 @@ Window  {
                 right: footer.right
                 bottom: footer.bottom
             }
-
         }
 
         TimeSlider{

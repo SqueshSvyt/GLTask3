@@ -6,7 +6,9 @@ import Logic.Audio
 
 Rectangle {
     id: root
+    property alias library: root.islib
 
+    default property bool islib: false
 
     color: "#D8D9DA"
     height: parent.height
@@ -95,6 +97,26 @@ Rectangle {
             source: "resources/images/next.png"
 
             onClicked: Player.mediaSeek(5000)
+        }
+    }
+
+
+    Imagebutton{
+        id: library
+
+        anchors{
+            verticalCenter: parent.verticalCenter
+            right: parent.right
+            rightMargin: 0.05 * parent.width
+        }
+
+        width: root.height * 0.6
+        height: root.height * 0.6
+
+        source: "resources/images/library.png"
+
+        onClicked: {
+            root.islib = !root.islib
         }
     }
 }
