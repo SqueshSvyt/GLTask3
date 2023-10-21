@@ -26,36 +26,6 @@ Window  {
 
     }
 
-    VideoPlayer{
-        id: videozone
-
-        visible: !controlpanel.library
-
-
-        anchors{
-            left: parent.left
-            right: parent.right
-            top: mainmenubar.bottom
-            bottom: footer.top
-        }
-
-        height: parent.height - (mainmenubar.height + footer.height)
-    }
-
-    LibraryZone{
-        id: libzone
-
-        visible: controlpanel.library
-
-        anchors{
-            left: parent.left
-            right: parent.right
-            top: mainmenubar.bottom
-            bottom: footer.top
-        }
-
-        height: parent.height - (mainmenubar.height + footer.height)
-    }
 
     Rectangle{
         id: footer
@@ -91,5 +61,37 @@ Window  {
                 top: footer.top
             }
         }
+    }
+
+
+    VideoPlayer{
+        id: videozone
+
+        visible: !controlpanel.library
+
+
+        anchors{
+            left: parent.left
+            right: parent.right
+            top: mainmenubar.bottom
+            bottom: footer.top
+        }
+
+        height: parent.height - (mainmenubar.height + footer.height)
+    }
+
+    LibraryZone{
+        id: libzone
+
+        visible: controlpanel.library
+
+        anchors{
+            left: parent.left
+            right: parent.right
+            top: mainmenubar.bottom
+            bottom: footer.top
+        }
+
+        height: parent.height - (mainmenubar.height + footer.height)
     }
 }

@@ -9,6 +9,7 @@
 #include <mediaplayer.h>
 #include <filedriver.h>
 #include <audiooutput.h>
+#include <library.h>
 
 int main(int argc, char *argv[])
 {
@@ -29,6 +30,9 @@ int main(int argc, char *argv[])
 
     qmlRegisterSingletonInstance("Logic.FileDriver",
                                  1, 0, "File", filedriver);
+
+    //Type Register
+    qmlRegisterType<MediaLibrary>("MediaLibrary", 1, 0, "MediaLibrary");
 
     QQmlApplicationEngine engine;
 

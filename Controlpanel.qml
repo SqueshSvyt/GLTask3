@@ -113,7 +113,7 @@ Rectangle {
         width: root.height * 0.6
         height: root.height * 0.6
 
-        source: "resources/images/library.png"
+        source: root.islib ? "resources/images/videochoose.png" : "resources/images/library.png"
 
         onClicked: {
             root.islib = !root.islib

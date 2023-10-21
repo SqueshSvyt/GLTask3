@@ -36,6 +36,7 @@ qt_add_qml_module(appMediaPlayer
     resources/images/icon.ico
     resources/images/next.png
     resources/images/library.png
+    resources/images/videochoose.png
 
     SOURCES
     mediaplayer.h
@@ -44,6 +45,8 @@ qt_add_qml_module(appMediaPlayer
     audiooutput.cpp
     filedriver.h
     filedriver.cpp
+    library.h
+    library.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
