@@ -6,11 +6,11 @@
 #include <QIcon>
 
 //Controllers of Program
-#include <mediaplayer.h>
-#include <filedriver.h>
-#include <audiooutput.h>
-#include <playlist.h>>
-#include <library.h>
+#include <Sources/mediaplayer.h>
+#include <Sources/filedriver.h>
+#include <Sources/audiooutput.h>
+#include <Sources/playlist.h>
+#include <Sources/library.h>
 
 
 int main(int argc, char *argv[])
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    const QUrl url(u"qrc:/MediaPlayer/main.qml"_qs);
+    const QUrl url(u"qrc:/MediaPlayer/Qml/main.qml"_qs);
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
         &app, [url](QObject *obj, const QUrl &objUrl) {

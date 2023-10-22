@@ -100,7 +100,7 @@ Item {
 
 
                     Imagebutton{
-                        source: "resources/images/delete.png"
+                        source: "../resources/images/delete.png"
                         height: 40
                         width: 40
                         anchors.verticalCenter:  parent.verticalCenter
@@ -119,7 +119,7 @@ Item {
                     }
 
                     Imagebutton{
-                        source: "resources/images/plus.png"
+                        source: "../resources/images/plus.png"
                         height: 40
                         width: 40
                         anchors.verticalCenter:  parent.verticalCenter
@@ -129,7 +129,7 @@ Item {
                     }
 
                     Imagebutton{
-                        source: "resources/images/playlist.png"
+                        source: "../resources/images/playlist.png"
                         height: 40
                         width: 40
                         anchors{
@@ -182,7 +182,7 @@ Item {
     }
 
     Imagebutton{
-        source: "resources/images/add.png"
+        source: "../resources/images/add.png"
 
         visible: !choose
 
@@ -371,7 +371,7 @@ Item {
     }
 
     Imagebutton{
-        source: "resources/images/add.png"
+        source: "../resources/images/add.png"
 
         visible: choose
 

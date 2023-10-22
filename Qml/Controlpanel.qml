@@ -24,7 +24,7 @@ Rectangle {
             rightMargin: 10
         }
 
-        source: Audio.isMute ? "resources/images/mute.png" : "resources/images/sound.png"
+        source: Audio.isMute ? "../resources/images/mute.png" : "../resources/images/sound.png"
 
         anchors.verticalCenterOffset: 0
 
@@ -64,7 +64,7 @@ Rectangle {
             width: root.height * 0.6
             height: root.height * 0.6
 
-            source: "resources/images/next.png"
+            source: "../resources/images/next.png"
 
             onClicked: Player.mediaSeek(-5000)
         }
@@ -78,7 +78,7 @@ Rectangle {
             width: root.height * 0.8
             height: root.height * 0.8
 
-            source: Player.isPlaying ? "resources/images/pause.png" : "resources/images/play.png"
+            source: Player.isPlaying ? "../resources/images/pause.png" : "../resources/images/play.png"
 
             onClicked: Player.playPause();
         }
@@ -94,7 +94,7 @@ Rectangle {
             width: root.height * 0.6
             height: root.height * 0.6
 
-            source: "resources/images/next.png"
+            source: "../resources/images/next.png"
 
             onClicked: Player.mediaSeek(5000)
         }
@@ -113,7 +113,7 @@ Rectangle {
         width: root.height * 0.6
         height: root.height * 0.6
 
-        source: Player.isRepeat ? "resources/images/resetmode.png" : "resources/images/resetmodeoff.png"
+        source: Player.isRepeat ? "../resources/images/resetmode.png" : "../resources/images/resetmodeoff.png"
 
         onClicked: {
             Player.changeRepeatStatus();
@@ -132,7 +132,7 @@ Rectangle {
         width: root.height * 0.6
         height: root.height * 0.6
 
-        source: root.islib ? "resources/images/videochoose.png" : "resources/images/library.png"
+        source: root.islib ? "../resources/images/videochoose.png" : "../resources/images/library.png"
 
         onClicked: {
             root.islib = !root.islib

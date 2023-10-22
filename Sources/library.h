@@ -9,7 +9,7 @@
 #include <QUrl>
 
 #include <vector>
-#include <playlist.h>
+#include "playlist.h"
 
 class MediaLibrary : public QObject
 {
