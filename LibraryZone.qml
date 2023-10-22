@@ -103,7 +103,7 @@ Item {
 
                             source: model.url
 
-
+                            fillMode: VideoOutput.Stretch
 
                             height: 0.6 * parent.height
                             width: 0.8 * parent.width
@@ -166,6 +166,7 @@ Item {
             medialib.addMedia(selectedFile);
             mediaModel.clear();
             readmetadata();
+            liblist.re
         }
     }
 
