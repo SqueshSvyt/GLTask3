@@ -19,7 +19,6 @@ Item {
         width: parent.width
         height: parent.height
 
-        flushMode: VideoOutput.FirstFrame
 
         fillMode: VideoOutput.PreserveAspectFit
 

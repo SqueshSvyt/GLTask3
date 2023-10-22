@@ -9,7 +9,9 @@
 #include <mediaplayer.h>
 #include <filedriver.h>
 #include <audiooutput.h>
+#include <playlist.h>>
 #include <library.h>
+
 
 int main(int argc, char *argv[])
 {
@@ -21,7 +23,7 @@ int main(int argc, char *argv[])
     FileDriver* filedriver = new FileDriver(&app);
     AudioOutput* audiooutput = new AudioOutput(&app);
 
-    //Create Containres
+    //RegisterSingleton
     qmlRegisterSingletonInstance("Logic.Audio",
                                  1, 0, "Audio", audiooutput);
 
@@ -33,6 +35,7 @@ int main(int argc, char *argv[])
 
     //Type Register
     qmlRegisterType<MediaLibrary>("MediaLibrary", 1, 0, "MediaLibrary");
+    qmlRegisterType<PlayList>("PlayList", 1, 0, "PlayList");
 
     QQmlApplicationEngine engine;
 

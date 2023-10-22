@@ -102,6 +102,25 @@ Rectangle {
 
 
     Imagebutton{
+        id: repeatmode
+
+        anchors{
+            verticalCenter: parent.verticalCenter
+            right: library.right
+            rightMargin: 0.1 * parent.width
+        }
+
+        width: root.height * 0.6
+        height: root.height * 0.6
+
+        source: Player.isRepeat ? "resources/images/resetmode.png" : "resources/images/resetmodeoff.png"
+
+        onClicked: {
+            Player.changeRepeatStatus();
+        }
+    }
+
+    Imagebutton{
         id: library
 
         anchors{

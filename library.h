@@ -9,6 +9,7 @@
 #include <QUrl>
 
 #include <vector>
+#include <playlist.h>
 
 class MediaLibrary : public QObject
 {
@@ -28,6 +29,7 @@ public:
 
 private:
     std::vector<QUrl> mediaItems;
+    std::vector<PlayList> playlistsinfo;
     QMediaPlayer* mediaplayermeta = new QMediaPlayer();
 };
 

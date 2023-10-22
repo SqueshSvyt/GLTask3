@@ -7,7 +7,7 @@ Item {
 
     id: root
 
-    opacity: buttonmousearea.containsMouse ? 0.75 : 1
+    opacity: buttonmousearea.containsMouse ? 0.5 : 1
 
     signal clicked
 

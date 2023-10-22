@@ -5,21 +5,19 @@ MediaLibrary::MediaLibrary(QObject *parent) : QObject(parent)
 {
     // Initialize mediaItems with some data (e.g., file paths).
 
-    mediaItems.push_back(QUrl::fromLocalFile("C:/Users/olegs/Music/Feint - We Won't Be Alone (feat. Laura Brehm).mp4"));
-    mediaItems.push_back(QUrl::fromLocalFile("C:/Users/olegs/Music/cyberpank.mp3"));
+    //mediaItems.push_back(QUrl::fromLocalFile("C:/Users/olegs/Music/Feint - We Won't Be Alone (feat. Laura Brehm).mp4"));
+    //mediaItems.push_back(QUrl::fromLocalFile("C:/Users/olegs/Music/cyberpank.mp3"));
 
     // Add more media items as needed.
 
 }
 
-std::vector<QUrl> MediaLibrary::getMediaItems() const
-{
+std::vector<QUrl> MediaLibrary::getMediaItems() const{
     return mediaItems;
 }
 
 QString MediaLibrary::getTitle(QUrl url) const{
     mediaplayermeta->setSource(url);
-
     QMediaMetaData data = mediaplayermeta->metaData();
 
     if(data[QMediaMetaData::Title].isNull())
@@ -50,7 +48,6 @@ QString MediaLibrary::getReleaseDate(QUrl url) const{
 
     return "Date: " + data[QMediaMetaData::Date].toString();
 }
-
 
 void MediaLibrary::addMedia(QUrl url){
     if(url.isValid())

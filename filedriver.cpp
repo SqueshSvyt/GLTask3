@@ -19,4 +19,6 @@ void FileDriver::openFile(QUrl pathtofile){
         pr_mediaplayer->setSource(pathtofile);
         pr_mediaplayer->pause();
     }
+
+    pr_mediaplayer->ClearPlaylist();
 }
