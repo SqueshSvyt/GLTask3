@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QMediaPlayer>
+#include <QMediaMetaData>
 #include <QDebug>
 
 #include "playlist.h"
@@ -108,6 +109,8 @@ public slots:
      * @return The current media time position in milliseconds.
      */
     qint64 mediaTime();
+
+    std::vector<QString> plmetadata();
 
 signals:
     /**

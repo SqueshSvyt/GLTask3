@@ -116,3 +116,24 @@ void MediaPlayer::handleMediaStatus(QMediaPlayer::MediaStatus status)
 qint64 MediaPlayer::mediaTime(){
     return this->duration();
 }
+
+std::vector<QString> MediaPlayer::plmetadata(){
+    std::vector<QString> vector;
+
+    auto metadata = this->metaData();
+
+    vector.push_back(metadata[QMediaMetaData::Title].toString());
+    vector.push_back(metadata[QMediaMetaData::Author].toString());
+    vector.push_back(metadata[QMediaMetaData::Genre].toString());
+    vector.push_back(metadata[QMediaMetaData::Date].toString());
+    vector.push_back(metadata[QMediaMetaData::AlbumTitle].toString());
+    vector.push_back(metadata[QMediaMetaData::Language].toString());
+    vector.push_back(metadata[QMediaMetaData::Description].toString());
+    vector.push_back(metadata[QMediaMetaData::VideoCodec].toString());
+    vector.push_back(metadata[QMediaMetaData::AudioCodec].toString());
+    vector.push_back(metadata[QMediaMetaData::MediaType].toString());
+    vector.push_back(metadata[QMediaMetaData::FileFormat].toString());
+    vector.push_back(metadata[QMediaMetaData::Duration].toString());
+
+    return vector;
+}
