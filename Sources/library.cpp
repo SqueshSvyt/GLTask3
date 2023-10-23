@@ -3,12 +3,6 @@
 
 MediaLibrary::MediaLibrary(QObject *parent) : QObject(parent)
 {
-    // Initialize mediaItems with some data (e.g., file paths).
-
-    //mediaItems.push_back(QUrl::fromLocalFile("C:/Users/olegs/Music/Feint - We Won't Be Alone (feat. Laura Brehm).mp4"));
-    //mediaItems.push_back(QUrl::fromLocalFile("C:/Users/olegs/Music/cyberpank.mp3"));
-
-    // Add more media items as needed.
 
 }
 
@@ -53,3 +47,5 @@ void MediaLibrary::addMedia(QUrl url){
     if(url.isValid())
         mediaItems.push_back(url);
 }
+
+

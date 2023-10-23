@@ -10,7 +10,7 @@ Rectangle {
 
     default property bool islib: false
 
-    color: "#D8D9DA"
+    color: "#FFF6E0"
     height: parent.height
 
     Imagebutton{

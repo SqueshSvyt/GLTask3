@@ -4,7 +4,6 @@ import QtQuick.Controls.Material
 import Logic.Mediaplayer
 
 Item {
-    opacity: 0.5
 
     Timer {
         id: positionUpdateTimer
@@ -28,9 +27,45 @@ Item {
 
         to: 1.0
 
-        anchors.centerIn: parent;
+        anchors{
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+            topMargin: 10
+        }
 
         onMoved: Player.setMediatime(value * Player.mediaTime())
 
+    }
+
+
+    Text {
+        text: "Current Position: " + formatTime(Player.position)
+        anchors{
+            top: parent.top
+            right: parent.right
+            topMargin: 5
+            rightMargin: 10
+        }
+    }
+
+    Text {
+        text: "Total Duration: " + formatTime(Player.duration)
+
+        anchors{
+            top: parent.top
+            left: parent.left
+            topMargin: 5
+            leftMargin: 10
+        }
+    }
+
+
+    function formatTime(time) {
+        if (isNaN(time))
+            return "0:00";
+
+        var minutes = Math.floor(time / 60000);
+        var seconds = ((time % 60000) / 1000).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
     }
 }

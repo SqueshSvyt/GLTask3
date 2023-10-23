@@ -3,6 +3,7 @@
 
 #include <QQmlContext>
 #include <QQuickItem>
+#include <QThread>
 #include <QIcon>
 
 //Controllers of Program
@@ -12,18 +13,19 @@
 #include <Sources/playlist.h>
 #include <Sources/library.h>
 
-
 int main(int argc, char *argv[])
 {
+    // Create the Qt GUI application
     QGuiApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/MediaPlayer/resources/images/icon.ico"));
 
-    //Create Objects
+    // Create instances of application controllers and components
     MediaPlayer* mediaplayer = new MediaPlayer(&app);
     FileDriver* filedriver = new FileDriver(&app);
     AudioOutput* audiooutput = new AudioOutput(&app);
 
-    //RegisterSingleton
+
+    // Register controllers as QML singletons
     qmlRegisterSingletonInstance("Logic.Audio",
                                  1, 0, "Audio", audiooutput);
 
@@ -33,14 +35,15 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("Logic.FileDriver",
                                  1, 0, "File", filedriver);
 
-    //Type Register
+    // Register custom QML types
     qmlRegisterType<MediaLibrary>("MediaLibrary", 1, 0, "MediaLibrary");
     qmlRegisterType<PlayList>("PlayList", 1, 0, "PlayList");
 
+    // Start the QML application engine
     QQmlApplicationEngine engine;
-
     const QUrl url(u"qrc:/MediaPlayer/Qml/main.qml"_qs);
 
+    // Connect a function to handle potential QML object creation errors
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
         &app, [url](QObject *obj, const QUrl &objUrl) {
             if (!obj && url == objUrl)
@@ -48,7 +51,7 @@ int main(int argc, char *argv[])
         }, Qt::QueuedConnection);
     engine.load(url);
 
-    //Add dependencies
+    // Add dependencies between application components
     QObject *Object = engine.rootObjects().constFirst();
     QQuickItem *videoOutputItem = Object->findChild<QQuickItem*>("VideoOutput");
     mediaplayer->setVideoOutput(videoOutputItem);

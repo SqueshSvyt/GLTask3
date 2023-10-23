@@ -72,12 +72,12 @@ Item {
 
                     Text {
                         text: "Name: " + model.name
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        Layout.alignment: Qt.AlignHCenter
                     }
 
                     Text {
                         text: "Genre: " + model.genre
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        Layout.alignment: Qt.AlignHCenter
                     }
                 }
 
@@ -170,13 +170,13 @@ Item {
             TextField  {
                 id: playlistNameInput
                 placeholderText: "Enter playlist name"
-                anchors.horizontalCenter: parent.horizontalCenter
+                Layout.alignment: Qt.AlignHCenter
             }
 
             TextField  {
                 id: playlistGenreInput
                 placeholderText: "Enter genre"
-                anchors.horizontalCenter: parent.horizontalCenter
+                Layout.alignment: Qt.AlignHCenter
             }
         }
     }
@@ -360,7 +360,7 @@ Item {
     }
 
     FileDialog {
-        id: fileDialog
+        id: fileDialogadd
         title: "Please choose a file"
         nameFilters: ["Media Files (*.mp4 *.mp3)", "MP4 Files (*.mp4)", "MP3 Files (*.mp3)", "All Files (*)"]
         onAccepted: {
@@ -384,7 +384,7 @@ Item {
             bottomMargin: 10
         }
         onClicked: {
-            fileDialog.open()
+            fileDialogadd.open()
         }
     }
 
@@ -397,7 +397,7 @@ Item {
             right: parent.right
         }
 
-        height: parent.height * 0.05
+        height: 30
 
 
         BaseButton{

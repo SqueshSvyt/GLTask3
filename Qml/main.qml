@@ -45,7 +45,7 @@ Window  {
     Rectangle{
         id: footer
 
-        height: 0.15 * parent.height
+        height: 0.2 * parent.height
         color: "#FFF6E0"
 
         anchors{
@@ -68,7 +68,7 @@ Window  {
 
         TimeSlider{
             id: timeslider
-            height: 0.30 * parent.height
+            height: 0.50 * parent.height
 
             anchors{
                 left: footer.left
