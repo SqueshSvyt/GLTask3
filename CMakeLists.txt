@@ -58,7 +58,6 @@ qt_add_qml_module(appMediaPlayer
     Sources/playlist.h
     Sources/playlist.cpp
 
-
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

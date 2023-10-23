@@ -40,6 +40,9 @@ Item {
 
     Text {
         text: "Current Position: " + formatTime(Player.position)
+
+        font.pixelSize: parent.height * 0.3
+
         anchors{
             top: parent.top
             right: parent.right
@@ -50,6 +53,8 @@ Item {
 
     Text {
         text: "Total Duration: " + formatTime(Player.duration)
+
+        font.pixelSize: parent.height * 0.3
 
         anchors{
             top: parent.top

@@ -21,11 +21,5 @@ Item {
 
 
         fillMode: VideoOutput.PreserveAspectFit
-
-        TapHandler {
-            onDoubleTapped: {
-                //MetaData
-            }
-        }
     }
 }

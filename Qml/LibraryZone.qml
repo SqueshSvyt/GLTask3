@@ -160,8 +160,6 @@ Item {
                                         name: playlistNameInput.text,
                                         genre: playlistGenreInput.text,
 
-
-
                                       })
             }
         }
@@ -240,15 +238,12 @@ Item {
             NumberAnimation { properties: "x,y"; duration: 1000 }
         }
 
-        onAddChanged: {
-            videoreload();
-        }
-
         delegate: Component  {
             id: contactDelegate
 
             Item {
-                function videoreload(){
+
+                Component.onCompleted: {
                     video.play()
                 }
 
@@ -266,7 +261,6 @@ Item {
 
                     border{
                         color: "#FFF6F6"
-                        //width: 5
                     }
 
                     Column {
@@ -311,6 +305,7 @@ Item {
 
                                 volume: 0
                                 loops: MediaPlayer.Infinite
+
                             }
                         }
 

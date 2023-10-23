@@ -45,7 +45,7 @@ Window  {
     Rectangle{
         id: footer
 
-        height: 0.2 * parent.height
+        height: 0.15 * parent.height
         color: "#FFF6E0"
 
         anchors{
